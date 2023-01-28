@@ -1,0 +1,33 @@
+Dev Notes for Final Project
+
+25th Jan OK: This is where I'm at
+
+Have writen multiple scripts: 
+
+1.	parse_description_data.py (parses the description data and creates json ) 
+2.	run.py  (uploads the supplied data to the website using requests) 
+3.	report_email.py  (including main)  coordinates the creation of pdf and confirmation of email to supplier
+4.	reports.py (script to generate and create a pdf report) 
+5.	to do:  emails.py  (includes methods to generate and send an email) 
+6.	to do: yet unamed[script to monitor system rescourses and generate alert] 
+
+All going well but then hit a bottle neck when writing reports.py. (pdf creation). because the reports library seems to expect paragraph data to be supplied as a list of strings formated with markdown (for pdf creation). Really need to revise reports module and the use of markdown to create pdfs. 
+I think I went wrong in parse_description_data.py. Why? It worked (to uploaded images and descriptive text to server. However, I used json.dumps() method to create a json object which I uploaded directly. I think I should have used json.dump() to create a temporary json file (A list of key: value objects.) that were saved as a json file. 
+As a result, when I came to writing script for  to generate report.py I started trying to reinvent the wheel by parsing the descriptive files again. This was a waste of time. I believe I should have been loaded the (temporary) json file previously exported. (as I did before). In effect, I would then be working with json data (lists of key value pairs). I believe this is what is expected by reports and it makes it much easy to process and insert <br> linebreaks inbetween extracted data. 
+
+What I need to do: 
+
+revisted cars.py and figure out how I produced the summary paragraph included as paragraph text in pdf. 
+re-write parse_description_data using json.dump() rather than dumps()  (or is it other way round?)
+review and revise the reportLab module and understand how to tag paragraph text. 
+Key take way:  
+	get to know thy types: don't confuse strings and lists of strings
+	export json for reuse (use json.dump() and json.load ()
+	think holistically (how do all modules work together) and trust instincts.
+	Don't create work for yourself. 
+Other things: 
+	why did I call the file; parse_descirption_data()  was that in the instructions? 
+	I really ought to be using github. I still haven't figured if I can pull and pull from github from 	within the coursera virtal machine 
+	don't be disheartened. I've made considerable progress. For example, this is infact a file 	called /tmp/processed in the root directory which I created. 
+
+
