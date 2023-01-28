@@ -11,6 +11,7 @@ cpu_max_limit = 80
 min_disk_space = 20
 min_memory = 500
 local_host_up = True
+##
 
 def generate_error_report(alert_generated): 
     """ function used to generated an EmailMessage object for sending"""    # to be moved to emails.py ? 
